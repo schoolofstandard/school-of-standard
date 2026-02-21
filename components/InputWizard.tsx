@@ -20,6 +20,19 @@ const AUDIENCES = [
   "Real Estate Professionals", "Financial Advisors", "Marketers"
 ];
 
+const ENGLISH_STYLES = [
+  "Standard American English",
+  "Standard British English",
+  "Simple & Direct (Plain English)",
+  "Academic & Formal",
+  "Creative & Descriptive",
+  "Persuasive & Copywriting-Style",
+  "Conversational & Casual",
+  "Technical & Precise",
+  "Softer / Empathetic Tone",
+  "Old English / Archaic (Stylized)"
+];
+
 const EXTRAS = [
   "Case Studies", "Worksheets", "Action Plans", "Reflection Questions", "Checklists", "Resource Lists"
 ];
@@ -28,6 +41,7 @@ export const InputWizard: React.FC<InputWizardProps> = ({ onSubmit, isSubmitting
   const [formData, setFormData] = useState<BookOptions>(initialValues || {
     topic: '',
     targetAudience: 'Beginners',
+    englishStyle: 'Standard American English',
     pageCount: 'Medium (30-50 pages)',
     targetChapterCount: 10,
     tone: 'Professional',
@@ -107,6 +121,17 @@ export const InputWizard: React.FC<InputWizardProps> = ({ onSubmit, isSubmitting
                 onChange={e => setFormData({...formData, targetAudience: e.target.value})}
               >
                 {AUDIENCES.map(a => <option key={a} value={a}>{a}</option>)}
+              </select>
+            </div>
+
+            <div>
+              <label className="block text-sm font-bold text-slate-700 mb-1 uppercase text-xs tracking-wider">English Style</label>
+              <select 
+                className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-orange-500 outline-none bg-white"
+                value={formData.englishStyle}
+                onChange={e => setFormData({...formData, englishStyle: e.target.value})}
+              >
+                {ENGLISH_STYLES.map(s => <option key={s} value={s}>{s}</option>)}
               </select>
             </div>
 

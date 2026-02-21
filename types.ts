@@ -1,6 +1,7 @@
 export interface BookOptions {
   topic: string;
   targetAudience: string;
+  englishStyle: string; // New field for English style
   pageCount: string; // "Short (20-30)", "Medium (30-50)", "Long (50+)"
   targetChapterCount: number;
   tone: string;

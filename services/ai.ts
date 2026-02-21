@@ -167,6 +167,7 @@ export const generateBookOutline = async (options: BookOptions): Promise<BookOut
     Create a detailed eBook outline based on:
     - Topic: ${options.topic}
     - Audience: ${options.targetAudience}
+    - English Style: ${options.englishStyle}
     - Page Count: ${options.pageCount}
     - Target Chapters: ${options.targetChapterCount}
     - Tone: ${options.tone}
@@ -271,7 +272,7 @@ export const generateChapterContent = async (
 ): Promise<string> => {
   const promptText = `
     Write Chapter ${chapterIndex + 1}: "${chapter.title}".
-    Context: Title "${bookInfo.title}", Audience "${options.targetAudience}", Tone "${options.tone}".
+    Context: Title "${bookInfo.title}", Audience "${options.targetAudience}", Tone "${options.tone}", English Style "${options.englishStyle}".
     Objective: ${options.objective}
     Book Description: ${options.bookDescription || "Not provided"}
     Description: ${chapter.description}

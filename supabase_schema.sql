@@ -18,6 +18,7 @@ create table public.books (
   -- User Inputs
   topic text not null,
   target_audience text,
+  english_style text, -- New field
   page_count text,
   target_chapter_count integer,
   tone text,

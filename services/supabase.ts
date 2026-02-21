@@ -17,6 +17,7 @@ export interface DBBook {
   back_cover_copy?: string;
   topic: string;
   target_audience: string;
+  english_style: string;
   page_count: string;
   target_chapter_count: number;
   tone: string;
@@ -50,6 +51,7 @@ export const createBook = async (options: BookOptions): Promise<string | null> =
     .insert({
       topic: options.topic,
       target_audience: options.targetAudience,
+      english_style: options.englishStyle,
       page_count: options.pageCount,
       target_chapter_count: options.targetChapterCount,
       tone: options.tone,
